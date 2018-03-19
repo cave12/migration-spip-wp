@@ -1,0 +1,6 @@
+# Site settings
+title: Documentation SPIP-to-WP
+theme: jekyll-theme-cayman
+url: "https://cours-web.ch/theme-eris-lite/"
+
+# include: ["_pages"]

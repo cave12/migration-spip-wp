@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+
+{% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
+    <style>
+      .page-nav a[href$="{{ page.path | replace:'.md','' }}"] {
+        color: rgba(255,255,255,1);
+        text-decoration: none;
+        background-color: rgba(255,255,255,0.3);
+        border-color: rgba(255,255,255,0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      <!--<ul class="page-nav">
+        <li><a href="{{ site.url }}" class="btn">Index</a></li>
+        <li><a href="contenus" class="btn">Les contenus standard</a></li>
+        <li><a href="modele-home-slider" class="btn">Le modèle de page Home Slider</a></li>
+        <li><a href="modele-portfolio" class="btn">Le modèle de page Portfolio</a></li>
+        <li><a href="vues-archive" class="btn">Les vues archive</a></li>
+      </ul>-->
+    </section>
+
+    <section class="main-content">
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> – une documentation par <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <p>Voir aussi: <a href="https://cours-web.ch/wp/">Cours WordPress</a></p>
+      </footer>
+    </section>
+
+  </body>
+</html>
