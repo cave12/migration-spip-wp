@@ -5,7 +5,7 @@ Un peu d'étude pour comprendre le format attendu:
 
 http://wordpress.stackexchange.com/questions/82399/what-is-the-required-format-for-importing-posts-into-wordpress
 
-## Structure du XML WordPress
+## Structure du XML WordPress
 
 Voici comment est structuré le code XML exporté depuis WordPress:
 
@@ -17,7 +17,7 @@ Ordre des éléments dans le fichier XML exporté depuis WP:
 - wp:term
 - contenus: pages, articles, ...
 
-### Les auteurs
+### Les auteurs
 
 Le fichier contient une liste des auteurs, sous cette forme:
 
@@ -45,7 +45,7 @@ Le ficher contient une liste des catégories:
 </wp:category>
 ```
 
-## Les tags (étiquettes)
+### Les tags (étiquettes)
 
 ```
 <wp:tag>
@@ -55,7 +55,7 @@ Le ficher contient une liste des catégories:
 </wp:tag>
 ```
 
-## Les taxonomies
+### Les taxonomies
 
 Si le site contient des taxonomies custom, le XML contient une liste sous cette forme:
 
@@ -71,7 +71,7 @@ Si le site contient des taxonomies custom, le XML contient une liste sous cette 
 
 Il n'est cependant pas nécessaire de créer les catégories/tags/taxonomies de cette manière. En effet, elles sont également déclarées dans le code XML des contenus, et WordPress va les créer à la volée durant l'importation.
 
-Dans un article, les taxonomies sont déclarées de cette manière (pour une Catégorie, un Tag, une taxonomie "Lieux"):
+Dans un article, les taxonomies sont déclarées de manière simplifiée (pour une Catégorie, un Tag, une taxonomie "Lieux"):
 
 ```
 <category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
