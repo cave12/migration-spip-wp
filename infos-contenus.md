@@ -41,7 +41,7 @@ Infos qu'on ne récupère pas:
 
 ### La homepage
 
-Cette page est créée dans SPIP par le modèle `sommaire.html`.
+Cette page est créée dans SPIP par le modèle **[sommaire.html](https://github.com/cave12/cave12-spip/blob/master/c12-2013/sommaire.html)**.
 
 La `BOUCLE_articles_recents` récupère tous les articles dont la date est dans le futur proche `(age<1)`.
 
@@ -52,7 +52,7 @@ On affiche ces données:
 
 ### Page concert
 
-La page de chaque concert est produite avec le modèle SPIP `article-1.html` (articles de la rubrique 1).
+La page de chaque concert est produite avec le modèle SPIP **[article-1.html](https://github.com/cave12/cave12-spip/blob/master/c12-2013/article-1.html)** (articles de la rubrique 1).
 
 Ce modèle affiche:
 
@@ -63,7 +63,7 @@ Ce modèle affiche:
 
 ### [Page affiches](http://www.cave12.org/affiches)
 
-Cette page est produite par le modèle `rubrique=22.html`
+Cette page est produite par le modèle **[rubrique=22.html](https://github.com/cave12/cave12-spip/blob/master/c12-2013/rubrique%3D22.html)**.
 
 Elle inclut plusieurs boucles:
 
@@ -73,6 +73,6 @@ Elle inclut plusieurs boucles:
 
 ### Liste des affiches par auteur
 
-Ces pages (une pour Xavier Robel, Harrisson, Thomas Perrodin...) sont créées par le modèle `mot.html`.
+Ces pages (une pour Xavier Robel, Harrisson, Thomas Perrodin...) sont créées par le modèle **[mot.html](https://github.com/cave12/cave12-spip/blob/master/c12-2013/mot.html)**.
 
 Le même modèle crée les pages "concerts par artiste". 

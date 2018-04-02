@@ -17,9 +17,9 @@ Cette méthode sera préférable si les attachments sont intégrés via des **ga
  
 Cette méthode sera préférable si les attachments sont liés via le **Post Parent**. Mais cela ne permet pas facilement de différencer les attachements "photos" des "affiches".
 
-***
+### PDFs et vignettes
 
-Note concernant les prévisualisations JPG des PDF: dans WordPress, les prévisualisations sont calculées automatiquement, il n'est plus nécessaire de les ajouter comme fichiers séparés. 
+Note concernant les **prévisualisations JPG des PDF**: dans WordPress, [depuis WP 4.7 (décembre 2016)](https://make.wordpress.org/core/2016/11/15/enhanced-pdf-support-4-7/), les prévisualisations sont **calculées automatiquement**. Il n'est plus nécessaire de les ajouter comme fichiers séparés! 
 
 On peut donc simplifier le champ ACF des affiches: un champ "Galerie ACF" suffit.
 
