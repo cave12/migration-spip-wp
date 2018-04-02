@@ -1,5 +1,7 @@
 # Inventaire des contenus du site
 
+## Modèles de page
+
 Les différents modèles de pages du site http://www.cave12.org/ :
 
 - La homepage : liste le programme (les concerts à venir).
@@ -10,10 +12,18 @@ Les différents modèles de pages du site http://www.cave12.org/ :
 - Affiches: montre les affiches (3 auteurs).
 - Affiche par auteur: toutes les affiches d'un auteur.
 
-Les données qu'il faut exporter pour chaque article:
+## Les contenus à exporter
+
+- Concerts
+- Affiches - Fichiers attachés
+- Artistes (mots-clés)
+
+## Les champs de données
+
+Les données qu'il faut exporter pour chaque Concert:
 
 - Titre = champ titre, identique dans SPIP et WP.
-- Sur-titre  = utilisé parfois pour des infos style "La cave12 à l'Ecurie (#196)". Dans WP: custom field (c12_surtitre)
+- Sur-titre  = utilisé parfois pour des infos style "La cave12 à l'Ecurie (#196)". Dans WP: custom field ACF (c12_surtitre)
 - Chapeau = en-tête. Contient le line-up du concert. On va l'assigner au champ "Extrait" de WordPress.
 - Contenu = contenu principal.
 - URL
@@ -31,9 +41,9 @@ Infos qu'on ne récupère pas:
 
 ### La homepage
 
-Cette page est créée dans SPIP par le modèle "sommaire.html".
+Cette page est créée dans SPIP par le modèle `sommaire.html`.
 
-La BOUCLE_articles_recents récupère tous les articles dont la date est dans le futur proche (age<1).
+La `BOUCLE_articles_recents` récupère tous les articles dont la date est dans le futur proche `(age<1)`.
 
 On affiche ces données:
 * La date
@@ -42,7 +52,7 @@ On affiche ces données:
 
 ### Page concert
 
-La page de chaque concert est produite avec le modèle SPIP "article-1.html" (articles de la rubrique 1).
+La page de chaque concert est produite avec le modèle SPIP `article-1.html` (articles de la rubrique 1).
 
 Ce modèle affiche:
 
@@ -50,3 +60,19 @@ Ce modèle affiche:
 * Le champ #SURTITRE
 * Le champ #CHAPO
 * Le contenu - #TEXTE
+
+### [Page affiches](http://www.cave12.org/affiches)
+
+Cette page est produite par le modèle `rubrique=22.html`
+
+Elle inclut plusieurs boucles:
+
+* Boucle affichant les 5 derniers documents PDF liés au mot-clé Xavier Robel.
+* Idem pour Harrisson.
+* Idem pour Thomas Perrodin.
+
+### Liste des affiches par auteur
+
+Ces pages (une pour Xavier Robel, Harrisson, Thomas Perrodin...) sont créées par le modèle `mot.html`.
+
+Le même modèle crée les pages "concerts par artiste". 

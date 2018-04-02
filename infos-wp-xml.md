@@ -15,6 +15,7 @@ Ordre des éléments dans le fichier XML exporté depuis WP:
 - wp:category
 - wp:tag
 - wp:term
+- contenus: pages, articles, ...
 
 ### Les auteurs
 
@@ -68,9 +69,51 @@ Si le site contient des taxonomies custom, le XML contient une liste sous cette 
 </wp:term>
 ```
 
+Il n'est cependant pas nécessaire de créer les catégories/tags/taxonomies de cette manière. En effet, elles sont également déclarées dans le code XML des contenus, et WordPress va les créer à la volée durant l'importation.
+
+Dans un article, les taxonomies sont déclarées de cette manière (pour une Catégorie, un Tag, une taxonomie "Lieux"):
+
+```
+<category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
+<category domain="post_tag" nicename="Joke-Lanz"><![CDATA[Joke Lanz]]></category>
+<category domain="lieux" nicename="ilot-13"><![CDATA[Ilôt 13]]></category>
+```
+
 ## Les contenus:
 
-Le fichier XML contient tout type de contenus WP: Champs ACF (acf-field), fichiers attachés (attachment)...
+Le fichier XML contient tout type de contenus WordPress: Posts, Pages, Champs ACF (acf-field), fichiers attachés (attachment)...
+
+### Article
+
+```
+<item>
+	<title>THE AMES ROOM</title>
+	<link>http://cave12.org/the-ames-room/</link>
+	<pubDate>Tue, 31 Jan 2012 20:00:00 +0000</pubDate>
+	<dc:creator><![CDATA[manu-s]]></dc:creator>
+	<guid isPermaLink="false">http://www.cave12.org/THE-AMES-ROOM/</guid>
+	<description></description>
+	<content:encoded><![CDATA[<p>Concert de jazz free</p>]]></content:encoded>
+	<excerpt:encoded><![CDATA[<p>MARDI 31 JANVIER</p>]]></excerpt:encoded>
+	<wp:post_id>1492</wp:post_id>
+	<wp:post_date>2012-01-31 21:00:00</wp:post_date>
+	<wp:post_date_gmt>2012-01-31 20:00:00</wp:post_date_gmt>
+	<wp:comment_status>closed</wp:comment_status>
+	<wp:ping_status>closed</wp:ping_status>
+	<wp:post_name>the-ames-room</wp:post_name>
+	<wp:status>publish</wp:status>
+	<wp:post_parent>0</wp:post_parent>
+	<wp:menu_order>0</wp:menu_order>
+	<wp:post_type>post</wp:post_type>
+	<wp:post_password></wp:post_password>
+	<wp:is_sticky>0</wp:is_sticky>
+	<category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
+	<wp:postmeta>
+		<wp:meta_key>_mem_start_date</wp:meta_key>
+		<wp:meta_value><![CDATA[2012-01-31 21:00]]></wp:meta_value>
+	</wp:postmeta>
+</item>
+```
 
 ### Attachement
 
@@ -78,7 +121,7 @@ Code d'un attachment (fichier SVG):
 
 ```
 <item>
-  <title>example</title>
+  <title>example attachment</title>
   <link>https://example.com/page/attachment/example/</link>
   <pubDate>Fri, 25 Aug 2017 19:29:14 +0000</pubDate>
   <dc:creator><![CDATA[mschmalstieg]]></dc:creator>
@@ -104,57 +147,5 @@ Code d'un attachment (fichier SVG):
     <wp:meta_value><![CDATA[2017/08/75e_.svg]]></wp:meta_value>
   </wp:postmeta>
 </item>
-```
-
-	
-
-## Production du XML depuis SPIP
-
-Dans SPIP, un modèle spécial est créé pour produire le code XML nécessaire à l'importation dans WordPress.
-
-Le code pour exporter les mots-clés:
-
-```
-<BOUCLE_mots(MOTS){id_groupe=3}{par titre}>
-<wp:tag>
-  <wp:term_id>#ID_MOT</wp:term_id>
-  <wp:tag_slug>#URL_MOT</wp:tag_slug>
-  <wp:tag_name><![CDATA[#TITRE]]></wp:tag_name>
-</wp:tag></BOUCLE_mots>
-```
-
-Le code pour exporter les articles:
-
-```
-<B_articles>
-[(#REM) - Si plusieurs articles, affiche la liste des articles ]
-<BOUCLE_articles(ARTICLES){id_rubrique=1}{annee=2016}{par date}{0, 5}>
-  <item>
-    <title>[(#TITRE)]</title>
-    <link>#URL_SITE_SPIP/#URL_ARTICLE/</link>
-    <pubDate>[(#DATE|affdate{'D, d M Y H:i:s +0000'})]</pubDate>
-    <dc:creator><![CDATA[manu-s]]></dc:creator>
-    <guid isPermaLink="false">#URL_SITE_SPIP/#URL_ARTICLE/</guid>
-    <description/>
-    <content:encoded><![CDATA[[(#TEXTE|image_reduire{500,0})]
-  ]]></content:encoded>
-    <excerpt:encoded><![CDATA[[(#CHAPO)]]]></excerpt:encoded>
-    <wp:post_date>[(#DATE|affdate{'Y-m-d H:i:s'})]</wp:post_date>
-    <wp:post_name>#URL_ARTICLE</wp:post_name>
-    <wp:status>publish</wp:status>
-    <wp:post_parent>0</wp:post_parent>
-    <wp:post_type>post</wp:post_type>
-    <category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
-    <B_artistes><BOUCLE_artistes(MOTS) {id_article} {id_groupe=3}>
-    <category domain="post_tag" nicename="[(#URL_MOT)]"><![CDATA[[(#TITRE)]]]></category></BOUCLE_artistes></B_artistes>
-    <wp:postmeta>
-      <wp:meta_key>_mem_start_date</wp:meta_key>
-      <wp:meta_value><![CDATA[[(#DATE|affdate{'Y-m-d H:i'})]]]></wp:meta_value>
-    </wp:postmeta>
-  </item>
-</BOUCLE_articles>
-</B_articles>
-[(#REM) AUCUN RESULTAT]
-<//B_articles>
 ```
 
