@@ -30,3 +30,6 @@ ACF est utilisé pour:
 - Les photos : champ "Galerie" attaché à un concert (c12_photos).
 - Les affiches attachées aux concerts (c12_affiches). Il s'agit également d'un champ "Galerie".
 
+***
+
+Suite: [Inventaire des contenus du site](infos-contenus.md).

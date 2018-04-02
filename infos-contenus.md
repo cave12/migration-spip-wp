@@ -76,3 +76,7 @@ Elle inclut plusieurs boucles:
 Ces pages (une pour Xavier Robel, Harrisson, Thomas Perrodin...) sont créées par le modèle **[mot.html](https://github.com/cave12/cave12-spip/blob/master/c12-2013/mot.html)**.
 
 Le même modèle crée les pages "concerts par artiste". 
+
+***
+
+Suite: [Format XML d'importation WordPress](infos-wp-xml.md) (un peu d'étude pour comprendre le format attendu).

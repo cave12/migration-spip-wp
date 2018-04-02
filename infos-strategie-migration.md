@@ -80,3 +80,7 @@ array
     [2] => 1502
 )
 ```
+
+***
+
+Suite: [Code pour l'exportation depuis SPIP](infos-wp-xml-from-spip.md).

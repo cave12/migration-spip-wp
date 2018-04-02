@@ -160,4 +160,7 @@ Code XML pour un custom field simple (champ surtitre):
 </wp:postmeta>
 ```
 
+***
+
+Suite: [Post ID et relations entre contenus](infos-post-id-et-relations.md).
 

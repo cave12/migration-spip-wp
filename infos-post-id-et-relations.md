@@ -45,3 +45,7 @@ Un Post indique sa Featured image ainsi:
   <wp:meta_value><![CDATA[1497]]></wp:meta_value>
 </wp:postmeta>
 ```
+
+***
+
+Suite: [Stratégie de migration](infos-strategie-migration.md).
