@@ -3,17 +3,17 @@
 
 Deux stratégies possibles:
 
-### Méthode A:
+### Méthode A: Documents first
 
-1. Importer d'abord **les attachements** (leurs IDs resteront correctes).
-2. Importer ensuite les articles: leurs ID seront nouvelles, mais ils seront liés aux bons fichiers.
+1. Importer d'abord **les Documents** (leurs IDs resteront correctes).
+2. Importer ensuite les Articles: leurs ID seront nouvelles, mais ils seront liés aux bons fichiers.
 
 Cette méthode sera préférable si les attachments sont intégrés via des **galeries ACF**.
 
-### Méthode B:
+### Méthode B: Articles first
 
-1. Importer d'abord **les articles** (leurs IDs seront correctes).
-2. Importer ensuite les attachments, en les liant aux articles via leurs champs "post_parent". 
+1. Importer d'abord **les Articles** (leurs IDs seront correctes).
+2. Importer ensuite les Documents, en les liant aux articles via leurs champs "post_parent". 
  
 Cette méthode sera préférable si les attachments sont liés via le **Post Parent**. Mais cela ne permet pas facilement de différencer les attachements "photos" des "affiches".
 
@@ -25,9 +25,14 @@ On peut donc simplifier le champ ACF des affiches: un champ "Galerie ACF" suffit
 
 ## Champ ID originel 
 
-Pour permettre toutes sortes de corrections post-opératoires, on va créer pour chaque item (article, attachment) un *Custom Field* qui contiendra son **ID originel**: c12_spip_doc_id ou c12_spip_article_id.
+Pour permettre toutes sortes de corrections post-opératoires, on va créer pour chaque item (article, attachment) un *Custom Field* qui contiendra son **ID originel**: 
 
-```
+* `c12_spip_doc_id` = ID originel pour les documents.
+* `c12_spip_article_id` = ID originel pour les articles
+* `c12_spip_linked_article` = ID de l'article lié à un document.
+* `c12_spip_linked_doc` = ID du document lié à un article.
+
+```xml
 <wp:postmeta>
   <wp:meta_key>c12_spip_doc_id</wp:meta_key>
   <wp:meta_value>123</wp:meta_value>
@@ -40,7 +45,7 @@ Un champ ACF "Galerie" est créé pour les affiches. Ce champ sera enregistré s
 
 Voici comment une galerie d'images ACF se présente dans le code:
 
-```
+```xml
 <wp:postmeta>
   <wp:meta_key>c12_photos</wp:meta_key>
   <wp:meta_value><![CDATA[a:1:{i:0;s:4:"1497";}]]></wp:meta_value>
@@ -49,7 +54,7 @@ Voici comment une galerie d'images ACF se présente dans le code:
 
 Galerie avec 2 éléments:
 
-```
+```xml
 <wp:postmeta>
   <wp:meta_key>c12_photos</wp:meta_key>
   <wp:meta_value><![CDATA[a:2:{i:0;s:4:"1497";i:1;s:4:"1496";}]]></wp:meta_value>
@@ -58,7 +63,7 @@ Galerie avec 2 éléments:
 
 Galerie avec 3 éléments:
 
-```
+```xml
 <wp:postmeta>
   <wp:meta_key>c12_photos</wp:meta_key>
   <wp:meta_value><![CDATA[a:3:{i:0;s:4:"1506";i:1;s:4:"1497";i:2;s:4:"1502";}]]></wp:meta_value>
