@@ -21,7 +21,7 @@ Ordre des éléments dans le fichier XML exporté depuis WP:
 
 Le fichier contient une liste des auteurs, sous cette forme:
 
-```
+```xml
 <wp:author>
   <wp:author_id>6</wp:author_id>
   <wp:author_login><![CDATA[loginname]]></wp:author_login>
@@ -36,7 +36,7 @@ Le fichier contient une liste des auteurs, sous cette forme:
 
 Le ficher contient une liste des catégories:
 
-```
+```xml
 <wp:category>
   <wp:term_id>1</wp:term_id>
   <wp:category_nicename>concerts</wp:category_nicename>
@@ -47,7 +47,7 @@ Le ficher contient une liste des catégories:
 
 ### Les tags (étiquettes)
 
-```
+```xml
 <wp:tag>
   <wp:term_id>47</wp:term_id>
   <wp:tag_slug>acid-mothers-temple</wp:tag_slug>
@@ -86,7 +86,7 @@ Le fichier XML contient tout type de contenus WordPress: Posts, Pages, Champs AC
 ### Article
 
 ```
-<item>
+<item>xml
 	<title>THE AMES ROOM</title>
 	<link>http://cave12.org/the-ames-room/</link>
 	<pubDate>Tue, 31 Jan 2012 20:00:00 +0000</pubDate>
@@ -120,7 +120,7 @@ Le fichier XML contient tout type de contenus WordPress: Posts, Pages, Champs AC
 Code d'un attachment (fichier SVG):
 
 ```
-<item>
+<item>xml
   <title>example attachment</title>
   <link>https://example.com/page/attachment/example/</link>
   <pubDate>Fri, 25 Aug 2017 19:29:14 +0000</pubDate>
@@ -148,4 +148,16 @@ Code d'un attachment (fichier SVG):
   </wp:postmeta>
 </item>
 ```
+
+## Les Custom Fields
+
+Code XML pour un custom field simple (champ surtitre):
+
+```xml
+<wp:postmeta>
+  <wp:meta_key>c12_surtitre</wp:meta_key>
+  <wp:meta_value><![CDATA[Je suis un surtitre]]></wp:meta_value>
+</wp:postmeta>
+```
+
 

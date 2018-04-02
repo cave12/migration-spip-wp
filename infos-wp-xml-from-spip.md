@@ -2,6 +2,8 @@
 
 Dans SPIP, un modèle spécial est créé pour produire le code XML nécessaire à l'importation dans WordPress.
 
+## Les mots-clés
+
 Le code pour exporter les mots-clés:
 
 ```
@@ -12,6 +14,8 @@ Le code pour exporter les mots-clés:
   <wp:tag_name><![CDATA[#TITRE]]></wp:tag_name>
 </wp:tag></BOUCLE_mots>
 ```
+
+## Articles
 
 Le code pour exporter les articles:
 
@@ -48,3 +52,6 @@ Le code pour exporter les articles:
 <//B_articles>
 ```
 
+## Documents
+
+#FICHIER
