@@ -1,6 +1,11 @@
 # Production du XML depuis SPIP
 
-Dans SPIP, un modèle spécial est créé pour produire le code XML nécessaire à l'importation dans WordPress.
+Dans SPIP, un modèle ("squelette") spécial est créé pour produire le code XML nécessaire à l'importation dans WordPress. Pour appliquer le squelette:
+
+- Créer dans l'admin de SPIP une rubrique "Export", et un Article "Export-WP". Relever l'ID de la rubrique.
+- Nommer le squelette pour qu'il corresponde à la rubrique, p.ex. article-42.html (si l'ID de la rubrique est 42).
+- Visiter l'article Export-WP, copier-coller le code source, et l'enregistrer dans un `fichier.xml`.
+- Importer le fichier XML dans WordPress, via *Outils > Importer*.
 
 ## Les mots-clés
 
@@ -19,39 +24,69 @@ Le code pour exporter les mots-clés:
 
 Le code pour exporter les articles:
 
+...
+
+Le code inclut des boucles spéciales:
+
+Une boucle pour obtenir le mot-clé "Artiste":
+
 ```
-<B_articles>
-[(#REM) - Si plusieurs articles, affiche la liste des articles ]
-<BOUCLE_articles(ARTICLES){id_rubrique=1}{annee=2016}{par date}{0, 5}>
-  <item>
-    <title>[(#TITRE)]</title>
-    <link>#URL_SITE_SPIP/#URL_ARTICLE/</link>
-    <pubDate>[(#DATE|affdate{'D, d M Y H:i:s +0000'})]</pubDate>
-    <dc:creator><![CDATA[manu-s]]></dc:creator>
-    <guid isPermaLink="false">#URL_SITE_SPIP/#URL_ARTICLE/</guid>
-    <description/>
-    <content:encoded><![CDATA[[(#TEXTE|image_reduire{500,0})]
-  ]]></content:encoded>
-    <excerpt:encoded><![CDATA[[(#CHAPO)]]]></excerpt:encoded>
-    <wp:post_date>[(#DATE|affdate{'Y-m-d H:i:s'})]</wp:post_date>
-    <wp:post_name>#URL_ARTICLE</wp:post_name>
-    <wp:status>publish</wp:status>
-    <wp:post_parent>0</wp:post_parent>
-    <wp:post_type>post</wp:post_type>
-    <category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
-    <B_artistes><BOUCLE_artistes(MOTS) {id_article} {id_groupe=3}>
-    <category domain="post_tag" nicename="[(#URL_MOT)]"><![CDATA[[(#TITRE)]]]></category></BOUCLE_artistes></B_artistes>
-    <wp:postmeta>
-      <wp:meta_key>_mem_start_date</wp:meta_key>
-      <wp:meta_value><![CDATA[[(#DATE|affdate{'Y-m-d H:i'})]]]></wp:meta_value>
-    </wp:postmeta>
-  </item>
-</BOUCLE_articles>
-</B_articles>
-[(#REM) AUCUN RESULTAT]
-<//B_articles>
+<BOUCLE_artistes(MOTS){id_article}{id_groupe=3}>
+  <category domain="post_tag" nicename="[(#URL_MOT)]"><![CDATA[[(#TITRE)]]]></category></BOUCLE_artistes>
 ```
+
+Une boucle pour obtenir les documents liés (dans le groupe 3, donc des affiches). **Complexité:** le code sera différent selon le nombre d'affiches... Il faut produire un Array() PHP, et le sérialiser.
+
+```
+<BOUCLE_docs(DOCUMENTS){id_document}{id_article}{id_groupe=3}>
+... construire un Array, et le sérialiser.
+</BOUCLE_docs>
+```
+
 
 ## Documents
 
-#FICHIER
+Voir le code : ...
+
+### Boucle principale DOCUMENTS:
+
+Si on écrit la boucle ainsi...
+
+```
+<BOUCLE_docs(DOCUMENTS){0,1999}{par id_document}>
+```
+
+...seulement 620 documents sont retournés sur 689.
+
+La raison: il y a 69 documents non publiés (ils ne sont attachés à aucun article).
+
+On peut les inclure, en écrivant la boucle ainsi:
+
+```
+<BOUCLE_docs(DOCUMENTS){tout}{0,1999}{par id_document}>
+```
+
+Mais on a alors 1149 documents, y compris les *thumbnails* des PDFs (le mode vignette)! Pour les exclure, il faut ajouter: {mode != vignette}. Code final:
+
+```
+<BOUCLE_docs(DOCUMENTS){tout}{mode != vignette}{0,1999}{par id_document}>
+```
+
+Le code inclut des boucles spéciales pour des données supplémentaires:
+
+Une boucle pour obtenir **la taxonomie "Affiche par"**:
+
+```xml
+<BOUCLE_mots(MOTS){id_document}><category domain="affiches" nicename="#URL_MOT">[par (#TITRE)]</category></BOUCLE_mots>
+```
+
+Une boucle pour obtenir **le concert lié au document**:
+
+```xml
+<BOUCLE_article_lie(ARTICLES) {id_document}><wp:postmeta>
+  <wp:meta_key>c12_spip_linked_article</wp:meta_key>
+  <wp:meta_value>#ID_ARTICLE</wp:meta_value>
+</wp:postmeta></BOUCLE_article_lie>
+```
+
+***

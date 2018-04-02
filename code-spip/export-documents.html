@@ -10,49 +10,40 @@
 <!-- generator="WordPress.org" created="2014-09-02 17:16"-->
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
   <channel>
-<title>Cave12 Test Data</title>
-<link>http://www.cave12.org</link>
-<description>Données de test</description>
-<pubDate>Tue, 02 Sep 2014 17:16:26 +0000</pubDate>
-<language>en</language>
-<wp:wxr_version>1.2</wp:wxr_version>
-<wp:base_site_url>http://www.cave12.org</wp:base_site_url>
-<wp:base_blog_url>http://www.cave12.org</wp:base_blog_url>
+    <title>Cave12 Test Data</title>
+    <link>http://www.cave12.org</link>
+    <description>Données de test</description>
+    <pubDate>Tue, 02 Sep 2014 17:16:26 +0000</pubDate>
+    <language>en</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:base_site_url>http://www.cave12.org</wp:base_site_url>
+    <wp:base_blog_url>http://www.cave12.org</wp:base_blog_url>
 
-<BOUCLE_mots(MOTS){id_groupe=3}{par titre}>
-<wp:tag>
-  <wp:term_id>#ID_MOT</wp:term_id>
-  <wp:tag_slug>#URL_MOT</wp:tag_slug>
-  <wp:tag_name><![CDATA[#TITRE]]></wp:tag_name>
-</wp:tag>
-</BOUCLE_mots>
-
-<BOUCLE_documents(DOCUMENTS){tout}{mode!=vignette}{0,12}{par id_document}>
-   <item>
-    <title>[(#FICHIER|basename)]</title>
-    <link>#URL_SITE_SPIP/#FICHIER</link>
-    <pubDate>[(#DATE|affdate{'D, d M Y H:i:s +0000'})]</pubDate>
-    <dc:creator><![CDATA[manu-s]]></dc:creator>
-    <guid isPermaLink="false">#URL_SITE_SPIP/#FICHIER</guid>
-    <description>Description</description>
-    <content:encoded>Content</content:encoded>
-    <excerpt:encoded>Excerpt</excerpt:encoded>
-    <wp:post_id>#ID_DOCUMENT</wp:post_id>
-    <wp:post_date>[(#DATE|affdate{'Y-m-d H:i:s'})]</wp:post_date>
-    <wp:post_name>[(#FICHIER|basename)]</wp:post_name>
-    <wp:post_type>attachment</wp:post_type>
-    <BOUCLE_mots(MOTS){id_document}><category domain="affiches" nicename="#URL_MOT">[par (#TITRE)]</category></BOUCLE_mots>
-    <wp:postmeta>
-      <wp:meta_key>c12_spip_doc_id</wp:meta_key>
-      <wp:meta_value>#ID_DOCUMENT</wp:meta_value>
-    </wp:postmeta>
-    <BOUCLE_article_lie(ARTICLES) {id_document}><wp:postmeta>
-      <wp:meta_key>c12_spip_linked_article</wp:meta_key>
-      <wp:meta_value>#ID_ARTICLE</wp:meta_value>
-    </wp:postmeta></BOUCLE_article_lie>
-  </item>           
-</BOUCLE_documents>
-
+    <BOUCLE_documents(DOCUMENTS){tout}{mode!=vignette}{0,12}{par id_document}>
+       <item>
+        <title>[(#FICHIER|basename)]</title>
+        <link>#URL_SITE_SPIP/#FICHIER</link>
+        <pubDate>[(#DATE|affdate{'D, d M Y H:i:s +0000'})]</pubDate>
+        <dc:creator><![CDATA[manu-s]]></dc:creator>
+        <guid isPermaLink="false">#URL_SITE_SPIP/#FICHIER</guid>
+        <description>Description</description>
+        <content:encoded>Content</content:encoded>
+        <excerpt:encoded>Excerpt</excerpt:encoded>
+        <wp:post_id>#ID_DOCUMENT</wp:post_id>
+        <wp:post_date>[(#DATE|affdate{'Y-m-d H:i:s'})]</wp:post_date>
+        <wp:post_name>[(#FICHIER|basename)]</wp:post_name>
+        <wp:post_type>attachment</wp:post_type>
+        <BOUCLE_mots(MOTS){id_document}><category domain="affiches" nicename="#URL_MOT">[par (#TITRE)]</category></BOUCLE_mots>
+        <wp:postmeta>
+          <wp:meta_key>c12_spip_doc_id</wp:meta_key>
+          <wp:meta_value>#ID_DOCUMENT</wp:meta_value>
+        </wp:postmeta>
+        <BOUCLE_article_lie(ARTICLES) {id_document}><wp:postmeta>
+          <wp:meta_key>c12_spip_linked_article</wp:meta_key>
+          <wp:meta_value>#ID_ARTICLE</wp:meta_value>
+        </wp:postmeta></BOUCLE_article_lie>
+      </item>           
+    </BOUCLE_documents>
 
   </channel>
 </rss>
