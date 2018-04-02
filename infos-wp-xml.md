@@ -59,7 +59,7 @@ Le ficher contient une liste des catégories:
 
 Si le site contient des taxonomies custom, le XML contient une liste sous cette forme:
 
-```
+```xml
 <wp:term>
   <wp:term_id><![CDATA[19]]></wp:term_id>
   <wp:term_taxonomy><![CDATA[type_de_projet]]></wp:term_taxonomy>
@@ -73,7 +73,7 @@ Il n'est cependant pas nécessaire de créer les catégories/tags/taxonomies de 
 
 Dans un article, les taxonomies sont déclarées de manière simplifiée (pour une Catégorie, un Tag, une taxonomie "Lieux"):
 
-```
+```xml
 <category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
 <category domain="post_tag" nicename="Joke-Lanz"><![CDATA[Joke Lanz]]></category>
 <category domain="lieux" nicename="ilot-13"><![CDATA[Ilôt 13]]></category>
