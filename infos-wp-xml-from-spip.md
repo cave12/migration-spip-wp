@@ -32,25 +32,32 @@ Une boucle pour obtenir le mot-clé "Artiste":
 
 ```
 <BOUCLE_artistes(MOTS){id_article}{id_groupe=3}>
-  <category domain="post_tag" nicename="[(#URL_MOT)]"><![CDATA[[(#TITRE)]]]></category></BOUCLE_artistes>
+  <category domain="post_tag" nicename="[(#URL_MOT)]"><![CDATA[[(#TITRE)]]]></category>
+</BOUCLE_artistes>
 ```
 
 Une boucle pour obtenir les documents liés (dans le groupe 3, donc des affiches). **Complexité:** le code sera différent selon le nombre d'affiches... Il faut produire un Array() PHP, et le sérialiser.
 
-Quelques infos sur la manière de faire ça avec SPIP: 
-
-* [https://www.spip.net/fr_article4009.html](https://www.spip.net/fr_article4009.html)
-* [|table_valeur](https://www.spip.net/fr_article4572.html)
-
+Il existe des techniques pour manipuler les Array avec la syntaxe SPIP, mais il est plus simple de le faire avec du PHP:
 
 ```
 <B_docs>
-#SET{c12_affiches,array(}
-<BOUCLE_docs(DOCUMENTS){id_document}{id_article}{id_groupe=3}>
-#SET{c12_affiches,|concat{#GET{c12_affiches},#ID_DOCUMENT}
+<?php
+$c12_affiches = array();
+?>
+<BOUCLE_docs(DOCUMENTS){id_article}>
+<?php
+	$c12_affiches[] = '[(#ID_DOCUMENT)]';
+?>
 </BOUCLE_docs>
+	<wp:postmeta>
+	  <wp:meta_key>c12_affiches</wp:meta_key>
+	  <wp:meta_value><?php
+	  echo serialize($c12_affiches); 
+	  ?></wp:meta_value>
+	</wp:postmeta>
 </B_docs>
-```
+``` 
 
 
 ## Documents
