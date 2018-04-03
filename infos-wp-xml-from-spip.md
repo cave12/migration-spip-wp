@@ -9,7 +9,7 @@ Dans SPIP, un modèle ("squelette") spécial est créé pour produire le code XM
 
 ## Les mots-clés
 
-Le code pour exporter les mots-clés: [export-mots.html](code-spip/export-mots.html)
+Le code pour exporter les mots-clés: [export-mots.html](https://github.com/cave12/migration-spip-wp/blob/master/code-spip/export-mots.html)
 
 ```
 <BOUCLE_mots(MOTS){id_groupe=3}{par titre}>
@@ -24,7 +24,7 @@ Le code pour exporter les mots-clés: [export-mots.html](code-spip/export-mots.h
 
 Le code pour exporter les articles:
 
-[export-articles.html](code-spip/export-articles.html)
+[export-articles.html](https://github.com/cave12/migration-spip-wp/blob/master/code-spip/export-articles.html)
 
 Le code inclut des boucles spéciales:
 
@@ -37,16 +37,25 @@ Une boucle pour obtenir le mot-clé "Artiste":
 
 Une boucle pour obtenir les documents liés (dans le groupe 3, donc des affiches). **Complexité:** le code sera différent selon le nombre d'affiches... Il faut produire un Array() PHP, et le sérialiser.
 
+Quelques infos sur la manière de faire ça avec SPIP: 
+
+* [https://www.spip.net/fr_article4009.html](https://www.spip.net/fr_article4009.html)
+* [|table_valeur](https://www.spip.net/fr_article4572.html)
+
+
 ```
+<B_docs>
+#SET{c12_affiches,array(}
 <BOUCLE_docs(DOCUMENTS){id_document}{id_article}{id_groupe=3}>
-... construire un Array, et le sérialiser.
+#SET{c12_affiches,|concat{#GET{c12_affiches},#ID_DOCUMENT}
 </BOUCLE_docs>
+</B_docs>
 ```
 
 
 ## Documents
 
-Voir le code : [export-documents.html](code-spip/export-documents.html)
+Voir le code : [export-documents.html](https://github.com/cave12/migration-spip-wp/blob/master/code-spip/export-documents.html)
 
 ### Boucle principale DOCUMENTS:
 
