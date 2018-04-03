@@ -9,7 +9,7 @@ Dans SPIP, un modèle ("squelette") spécial est créé pour produire le code XM
 
 ## Les mots-clés
 
-Le code pour exporter les mots-clés:
+Le code pour exporter les mots-clés: [export-mots.html](code-spip/export-mots.html)
 
 ```
 <BOUCLE_mots(MOTS){id_groupe=3}{par titre}>
@@ -24,7 +24,7 @@ Le code pour exporter les mots-clés:
 
 Le code pour exporter les articles:
 
-...
+[export-articles.html](code-spip/export-articles.html)
 
 Le code inclut des boucles spéciales:
 
@@ -46,7 +46,7 @@ Une boucle pour obtenir les documents liés (dans le groupe 3, donc des affiches
 
 ## Documents
 
-Voir le code : ...
+Voir le code : [export-documents.html](code-spip/export-documents.html)
 
 ### Boucle principale DOCUMENTS:
 
@@ -58,7 +58,7 @@ Si on écrit la boucle ainsi...
 
 ...seulement 620 documents sont retournés sur 689.
 
-La raison: il y a 69 documents non publiés (ils ne sont attachés à aucun article).
+La raison: il y a 69 documents **non publiés** (ils ne sont attachés à aucun article).
 
 On peut les inclure, en écrivant la boucle ainsi:
 
@@ -66,7 +66,9 @@ On peut les inclure, en écrivant la boucle ainsi:
 <BOUCLE_docs(DOCUMENTS){tout}{0,1999}{par id_document}>
 ```
 
-Mais on a alors 1149 documents, y compris les *thumbnails* des PDFs (le mode vignette)! Pour les exclure, il faut ajouter: {mode != vignette}. Code final:
+Mais on a alors 1149 documents, y compris les *thumbnails* des PDFs (le mode vignette)! Pour les exclure, il faut ajouter: {mode != vignette}. 
+
+Le code final:
 
 ```
 <BOUCLE_docs(DOCUMENTS){tout}{mode != vignette}{0,1999}{par id_document}>
@@ -77,7 +79,9 @@ Le code inclut des boucles spéciales pour des données supplémentaires:
 Une boucle pour obtenir **la taxonomie "Affiche par"**:
 
 ```xml
-<BOUCLE_mots(MOTS){id_document}><category domain="affiches" nicename="#URL_MOT">[par (#TITRE)]</category></BOUCLE_mots>
+<BOUCLE_mots(MOTS){id_document}>
+  <category domain="affiches" nicename="#URL_MOT">[par (#TITRE)]</category>
+</BOUCLE_mots>
 ```
 
 Une boucle pour obtenir **le concert lié au document**:
