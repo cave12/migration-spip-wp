@@ -149,6 +149,29 @@ Code d'un attachment (fichier SVG):
 </item>
 ```
 
+Les *attachments* comportent deux champs pouvant contenir des métadonnées. Ce sont les champs qui, pour un Article ou une Page, correspondent à l'extrait (excerpt) et au contenu principal (post content).
+
+* **Légende** (Caption) : `<excerpt:encoded></excerpt:encoded>`
+* **Description** : `<content:encoded></content:encoded>`
+
+Voici comment est inclus le **texte alternatif** (Alt Text), si le champ est renseigné:
+
+```xml
+<wp:postmeta>
+  <wp:meta_key><![CDATA[_wp_attachment_image_alt]]></wp:meta_key>
+  <wp:meta_value><![CDATA[Affiche du concert de Sister Iodine]]></wp:meta_value>
+</wp:postmeta>
+```
+
+Affichage de ces champs dans un thème standard (TwentySeventeen): 
+
+* Sur la "page du média" (attachment page): le **titre** et la **description** sont visibles – pas la légende.
+* Insérée dans un article: la **légende** est visible (pas le titre ni descrition).
+* Insérée comme galerie: la **légende** est visible.
+* Dans une galerie Jetpack: **titre**, **légende** et **description** sont visibles (la légende est "under the fold").
+
+**Conclusion:** il faut renseigner en priorité le **titre** et la **légende**. La description ne sera que rarement visible, on peut raisonnable l'ignorer.
+
 ## Les Custom Fields
 
 Code XML pour un custom field simple (champ surtitre):

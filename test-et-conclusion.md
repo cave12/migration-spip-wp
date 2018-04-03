@@ -20,3 +20,7 @@ Attention: bien régler les formats des médias de WordPress, car c'est pendant 
 Le fichier XML exporté contient 851 articles. Ils sont plus riches en texte, on a donc un XML pesant 4.5 Mb.
 
 Le processus d'importation prend environ 1 minute - la vitesse d'insertion dans la base de données est donc de 14 articles / seconde.
+
+**Conclusion:** la technique fonctionne à merveille!
+
+***

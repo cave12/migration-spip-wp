@@ -110,3 +110,5 @@ Une boucle pour obtenir **le concert lié au document**:
 ```
 
 ***
+
+**Suite:** [Test final et conclusion](test-et-conclusion.md).

@@ -13,6 +13,7 @@ Ceci est une documentation concernant un processus de migration de site, depuis 
 3. [Post ID et relations entre contenus](infos-post-id-et-relations.md).
 4. [Stratégie de migration](infos-strategie-migration.md).
 5. [Code pour l'exportation depuis SPIP](infos-wp-xml-from-spip.md).
+6. [Test final et conclusion](test-et-conclusion.md).
 
 ## Custom Fields
 
@@ -32,4 +33,4 @@ ACF est utilisé pour:
 
 ***
 
-Suite: [Inventaire des contenus du site](infos-contenus.md).
+**Suite:** [Inventaire des contenus du site](infos-contenus.md).
