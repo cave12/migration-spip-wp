@@ -6,6 +6,9 @@ Ceci est une documentation concernant un processus de migration de site, depuis 
 
 **La méthode:** on va générer depuis SPIP un fichier XML au format accepté par WordPress. Pour produire ce fichier, on crée un modèle de page SPIP.
 
+* Le thème SPIP utilisé: [https://github.com/cave12/cave12-spip](https://github.com/cave12/cave12-spip)
+* Le thème WordPress utilisé: [https://github.com/cave12/cave12-wp](https://github.com/cave12/cave12-wp)
+
 ## Informations détaillées:
 
 1. [Inventaire des contenus du site](infos-contenus.md).
