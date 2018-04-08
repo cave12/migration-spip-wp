@@ -29,11 +29,10 @@
         <description/>
         <content:encoded><![CDATA[[(#TEXTE)]]]></content:encoded>
         <excerpt:encoded><![CDATA[[(#CHAPO)]]]></excerpt:encoded>
-        <wp:post_date>[(#DATE|affdate{'Y-m-d H:i:s'})]</wp:post_date>
+        <wp:post_date><B_futur><BOUCLE_futur(ARTICLES){id_article}{age<=0}><?php echo date('Y-m-d H:i:s'); ?></BOUCLE_futur></B_futur>[(#DATE|affdate{'Y-m-d H:i:s'})]<//B_futur></wp:post_date>
         <wp:post_name>#URL_ARTICLE</wp:post_name>
         <wp:post_id>#ID_ARTICLE</wp:post_id>
         <wp:status>publish</wp:status>
-        <wp:post_parent>0</wp:post_parent>
         <wp:post_type>post</wp:post_type>
         <category domain="category" nicename="concerts"><![CDATA[Concerts]]></category>
         <BOUCLE_artistes(MOTS){id_article}{id_groupe=3}>

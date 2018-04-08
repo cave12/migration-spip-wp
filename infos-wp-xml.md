@@ -115,6 +115,20 @@ Le fichier XML contient tout type de contenus WordPress: Posts, Pages, Champs AC
 </item>
 ```
 
+Notes concernant les champs:
+
+#### La date:
+
+- Le champ `<pubDate>` n'est pas pris en compte par l'importateur. 
+- Le champ `<wp:post_date>` est utilisé pour renseigner la date du publication. S'il est absent, la date correspondra au moment de l'importation.
+
+#### Le statut:
+
+- Si le champ `<wp:status>` est vide, le statut de l'article importé sera: Brouillon.
+
+Si le champ `<wp:post_parent>` est vide, il n'y a pas d'incidence particulière.
+
+
 ### Attachement
 
 Code d'un attachment (fichier SVG):
