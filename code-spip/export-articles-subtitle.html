@@ -1,0 +1,8 @@
+[(#REM)
+	Un cache plus court, pour la boucle syndic_articles
+]#CACHE{10}
+<BOUCLE_principale(ARTICLES) {id_article}>
+    <BOUCLE_articles(ARTICLES){id_rubrique=1}{0,999}{par id_article}>
+        [#ID_ARTICLE => "(#SURTITRE)",]
+    </BOUCLE_articles>
+</BOUCLE_principale>
