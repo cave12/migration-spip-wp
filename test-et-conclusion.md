@@ -15,7 +15,7 @@ Constat après le processus 1: le fichier XML contenant les 689 documents (poids
 
 Attention: bien régler les formats des médias de WordPress, car c'est pendant cette importation que les images sont redimensionnées.
 
-Note: il est possible que les limites d'exécution de votre hébergeur ne permettent pas à l'importation de s'effectuer entièrement (si p.ex 
+Note: il est possible que les limites d'exécution de votre hébergeur ne permettent pas à l'importation de s'effectuer entièrement.
 
 ## Etape 2 : exportation des Articles
 

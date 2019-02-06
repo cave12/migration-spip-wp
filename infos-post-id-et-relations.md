@@ -21,7 +21,7 @@ Pour le site SPIP Cave12:
 * Les ID des Documents attachés vont de 1 à 1188.
 * Les ID des Articles vont de 1 à 907.
 
-## Relier les affiches aux articles
+## Commnent relier les affiches aux articles?
 
 Pour relier les affiches aux articles, différentes stratégies sont possibles.
 

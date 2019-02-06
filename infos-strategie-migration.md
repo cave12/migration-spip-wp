@@ -15,11 +15,11 @@ Cette méthode sera préférable si les attachments sont intégrés via des **ga
 1. Importer d'abord **les Articles** (leurs IDs seront correctes).
 2. Importer ensuite les Documents, en les liant aux articles via leurs champs "post_parent". 
  
-Cette méthode sera préférable si les attachments sont liés via le **Post Parent**. Mais cela ne permet pas facilement de différencer les attachements "photos" des "affiches".
+Cette méthode sera préférable si les attachments sont liés via le **Post Parent**. Mais cela ne permet pas facilement de différencier les attachements "photos" des "affiches".
 
 ### PDFs et vignettes
 
-Note concernant les **prévisualisations JPG des PDF**: dans WordPress, [depuis WP 4.7 (décembre 2016)](https://make.wordpress.org/core/2016/11/15/enhanced-pdf-support-4-7/), les prévisualisations sont **calculées automatiquement**. Il n'est plus nécessaire de les ajouter comme fichiers séparés! 
+Note concernant les **prévisualisations JPG des PDF**: dans WordPress, [depuis WP 4.7 (décembre 2016)](https://make.wordpress.org/core/2016/11/15/enhanced-pdf-support-4-7/), les prévisualisations sont **calculées automatiquement**. Il n'est plus nécessaire de les ajouter comme fichiers séparés. 
 
 On peut donc simplifier le champ ACF des affiches: un champ "Galerie ACF" suffit.
 
@@ -31,6 +31,8 @@ Pour permettre toutes sortes de corrections post-opératoires, on va créer pour
 * `c12_spip_article_id` = ID originel pour les articles
 * `c12_spip_linked_article` = ID de l'article lié à un document.
 * `c12_spip_linked_doc` = ID du document lié à un article.
+
+On les déclare de cette manière:
 
 ```xml
 <wp:postmeta>

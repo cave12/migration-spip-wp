@@ -125,8 +125,7 @@ Notes concernant les champs:
 #### Le statut:
 
 - Si le champ `<wp:status>` est vide, le statut de l'article importé sera: Brouillon.
-
-Si le champ `<wp:post_parent>` est vide, il n'y a pas d'incidence particulière.
+- Si le champ `<wp:post_parent>` est vide, il n'y a pas d'incidence particulière.
 
 
 ### Attachement
@@ -184,7 +183,7 @@ Affichage de ces champs dans un thème standard (TwentySeventeen):
 * Insérée comme galerie: la **légende** est visible.
 * Dans une galerie Jetpack: **titre**, **légende** et **description** sont visibles (la légende est "under the fold").
 
-**Conclusion:** il faut renseigner en priorité le **titre** et la **légende**. La description ne sera que rarement visible, on peut raisonnable l'ignorer.
+**Conclusion:** il faut renseigner en priorité le **titre** et la **légende**. La description ne sera que rarement visible, on peut raisonnablement l'ignorer.
 
 ## Les Custom Fields
 
